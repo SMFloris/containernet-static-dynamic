@@ -1,5 +1,7 @@
 # Containernet
 
+You can run everything using docker. Check requirements for info.
+
 ## Topology
 
 ![Topology](./resources/topology.png)
@@ -21,9 +23,37 @@ sysctl -w net.ipv4.ip_forward=1
 ## How to run
 
 ```bash
-sudo docker run --name containernet -it --rm --privileged --pid='host' -v ./scripts:/containernet/scripts -v /var/run/docker.sock:/var/run/docker.sock containernet/containernet python scripts/routing_static.py
+# to cleanup old networks
+./start.sh --clean
+
+# to start static example
+./start.sh --static
+
+# to start dynamic example
+./start.sh --dynamic
+
+# to force start any example by cleaning old networks
+./start.sh --dynamic --clean
 ```
+
+## Static routing
+
+Adding routes statically, we are able to ping h2 from h1.
 
 ![Setup](./resources/ss1.png)
 
 ![r1-ifconfig](./resources/ss2.png)
+
+## Dynamic routing
+
+Routing dynamically using Quagga and Rip works by using RIP on the interfaces defined by containernet.
+
+![Dynamic](./resources/ss3.png)
+
+You can also use vtysh in order to connect to quagga from containernet cli.
+
+```
+containernet> r1 vtysh
+```
+
+![Dynamic-Vtysh](./resources/ss4.png)
