@@ -8,19 +8,19 @@ You can run everything using docker. Check requirements for info.
 
 ## Requirements
 
-1. OvS (Open vSwitch) installed
+1. OvS (Open vSwitch) installed [https://docs.openvswitch.org/en/latest/intro/install/](https://docs.openvswitch.org/en/latest/intro/install/)
 
-[https://docs.openvswitch.org/en/latest/intro/install/](https://docs.openvswitch.org/en/latest/intro/install/)
+2. Docker installed [https://docker.com](https://docker.com)
 
-2. Docker installed
-
-3. Make sure you have net.ipv4.ip_forward enabled:
+3. Make sure you have `net.ipv4.ip_forward` enabled on your host:
 
 ```
 sysctl -w net.ipv4.ip_forward=1
 ```
 
 ## How to run
+
+You can use the wrapper script:
 
 ```bash
 # to cleanup old networks
@@ -35,6 +35,8 @@ sysctl -w net.ipv4.ip_forward=1
 # to force start any example by cleaning old networks
 ./start.sh --dynamic --clean
 ```
+
+You can find the source of the scripts in the scripts folder.
 
 ## Static routing
 
