@@ -1,10 +1,14 @@
 # Containernet
 
-You can run everything using docker. Check requirements for info.
+[Containernet](https://containernet.github.io/) is a fork of Mininet that supports Docker containers as hosts. It's great for testing network topologies with real software stacks running inside Docker.
+
+In these particular examples we explore static vs dynamic routing.
 
 ## Topology
 
 ![Topology](./resources/topology.png)
+
+* Source: [https://nqucsie.myqnapcloud.com/smallko/sdn/routing.htm](https://nqucsie.myqnapcloud.com/smallko/sdn/routing.htm)
 
 ## Requirements
 
